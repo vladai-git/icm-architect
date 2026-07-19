@@ -104,3 +104,4 @@ If a step fails, fix the structure — not by explaining more, but by moving or 
 - [references/core.md](references/core.md) — the five design principles, the five-layer context hierarchy, naming conventions, token discipline. Read when writing contracts or when a structural call is contested.
 - [references/forms.md](references/forms.md) — the five forms in depth: skeleton trees, defining moves, failure modes. Read at step 2 of Build mode or step 2 of Restructure mode.
 - [assets/templates/](assets/templates/) — copyable starters: `CLAUDE.md`, workspace `CONTEXT.md`, `stage-CONTEXT.md`, `node.md`, `schema.md`, `questionnaire.md`.
+- [references/data-governance.md](references/data-governance.md) — *optional* layer for workspaces holding shared, regulated, or sensitive data: authoritative source, sensitivity classification, output provenance. Read only when data sensitivity earns it.
