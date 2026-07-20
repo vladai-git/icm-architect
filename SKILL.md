@@ -63,7 +63,7 @@ Real workspaces mix forms (a record library whose records are mini knowledge bun
 
 ## Restructure mode
 
-**1. Inventory before touching.** List the tree. For each area note: what it is, when last touched, what refers to it. Never delete or move in this pass.
+**1. Inventory before touching.** List the tree. For each area note: what it is, when last touched, what refers to it — including from **outside** the folder: search the surrounding ecosystem (configs, issue trackers, agents, scheduled jobs) for absolute paths into this tree. These external consumers break silently when files move, and a link left where the copy lived doesn't help a machine. Never delete or move in this pass.
 
 **2. Find the hidden form.** Ask the owner (or infer and confirm): what is the repeating unit here? Where does work enter and leave? The mess usually contains a real pipeline, library, or map that grew without a skeleton — extract it, don't replace it. Interview the folder the way you'd interview the person.
 
@@ -74,7 +74,7 @@ Real workspaces mix forms (a record library whose records are mini knowledge bun
 - **Product** — run-specific artifacts (→ stage `output/` or record folders)
 - **Dead** — stale, duplicated, or superseded (→ propose `_archive/`, never silently delete)
 
-**4. Propose before moving.** Present the target tree and a migration map (old path → new path → role). Get approval. This is a human gate in a method built on human gates — honor it.
+**4. Propose before moving.** Present the target tree and a migration map (old path → new path → role). Get approval. This is a human gate in a method built on human gates — honor it. The migration map isn't ready for a yes until the reverse walk is clean or every external consumer is accounted for.
 
 **5. Migrate.** Move files, write the entry file and contracts, de-duplicate toward one-home-per-fact (leave a link where the copy lived if anything might reference it). Separate method from instance: if the structure will be reused elsewhere, the blank template lives apart from this filled-in deployment.
 
@@ -90,6 +90,7 @@ Validate any ICM — new or restructured — by walking it cold, as an agent wit
 - Is any routing file carrying content payload? Move the payload to a shelf; leave a pointer.
 - Is any fact stored in two places? Pick one home; link from the other.
 - Token check: entry file + one contract + its inputs should land in roughly 2k–8k tokens.
+- Reverse walk: does anything **outside** the workspace point INTO it by absolute path — configs, issue trackers, agents, scheduled jobs? Internal navigation can pass while external consumers break silently. Check both directions before and after any migration.
 
 If a step fails, fix the structure — not by explaining more, but by moving or splitting files until the walk works.
 
